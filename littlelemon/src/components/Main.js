@@ -4,18 +4,21 @@ const Main = () =>{
             title: "Greek Salad",
             price:"$12.00",
             description: "description example",
+            image: "example.com"
 
         },
         {
             title: "Buschetta",
             price:"$12.00",
             description: "description example",
+            image: "example.com"
 
         },
         {
             title: "Lemon Desert",
             price:"$12.00",
             description: "description example",
+            image: "example.com"
 
         }]
 
@@ -56,27 +59,33 @@ const Main = () =>{
                 </article>
             </section>
 
-            <section>
-                <article>
-                    <h2>Specials </h2>
-                    <button>Order Menu</button>
+            <section class="specials">
+                <article style={{display:"flex"}}>
+                    <h2 style={{flex:1}}>Specials </h2>
+                    <a href=""><h5 style={{flex:1,textAlign:"center",border: "1px solid black" ,borderRadius: "16px"}}>Order Menu </h5></a>
                 </article>
-                <article>
-                    <div className="card">
-                        {items.map(item =>(
-                            <>
-                            <h5>{item.title}</h5>
-                            <h5>{item.price}</h5>
-                            <h5>{item.description}</h5>
-                            <p>Order a delivery</p>
-                            </>
-                        ))
-                        }
-                    </div>
-                </article>
+
+                <div className="card">
+                {items.map(item =>(
+                    <article className="special-card">
+                    
+                            
+                                <>
+                                <img src={item.image} style={{width: "100%", borderRadius:"16px"}}/>
+                                <div style={{display:"flex", gap: "12px"}}>
+                                <h5 style={{flex:1}}>{item.title}</h5>
+                                <h5 style={{flex:1}}>{item.price}</h5>
+                                </div>
+                                <h5>{item.description}</h5>
+                                <p><a href="">Order a delivery</a></p>
+                                </>         
+                    </article>
+                ))
+                }
+                </div>
             </section>
 
-            <section>
+            <section className="rating">
                 {testimonials.map(item=>(
                     <article>
                         <p>{item.rating}</p>
@@ -87,15 +96,15 @@ const Main = () =>{
                 
             </section>
 
-            <section>
+            <section className="about">
                 <article>
-                    <h1> Little Lemon</h1>
+                    <h1>Little Lemon</h1>
                     <h2>Chicago</h2>
                     <p>Description</p>
                 </article>
 
                 <article>
-                    <img></img>
+                    <img src="image.png" alt="About image"></img>
                 </article>
             </section>
         </main>
