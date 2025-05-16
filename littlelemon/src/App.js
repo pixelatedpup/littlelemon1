@@ -4,20 +4,19 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import {Fragment} from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 
 function App() {
   return (
-    <Fragment className="App">
+    
+      <Fragment className="App">
 
-      <div className='heading'>
-        <Header></Header>
-        <Nav></Nav>
-      </div>
-      
-      <Main></Main>
-      <Footer></Footer>
-    </Fragment>
+
+
+        <Main></Main>
+        <Footer></Footer>
+      </Fragment>
   );
 }
 
