@@ -1,7 +1,7 @@
 const Header = () =>{
     return(
         <header>
-            <img src="" alt="logo"/>
+            <a href="/"><img src="/images/Logo.png" alt="logo" style={{paddingTop:"18px", height: '50px', width: '180px' }}/></a>
         </header>
     )
 }
