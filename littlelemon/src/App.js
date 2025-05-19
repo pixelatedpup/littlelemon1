@@ -10,13 +10,13 @@ import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     
-      <Fragment className="App">
+      <div className="App">
 
 
 
         <Main></Main>
         <Footer></Footer>
-      </Fragment>
+      </div>
   );
 }
 

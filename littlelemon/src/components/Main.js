@@ -1,9 +1,10 @@
 import { useReducer, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import BookingPage from "./pages/BookingPage";
 import HomePage from "./pages/HomePage";
 import Header from "./Header";
 import Nav from "./Nav";
+import ConfirmBooking from "./pages/ConfirmBooking";
 
 // Reducer function
 function updateTime(state, action) {
@@ -16,6 +17,7 @@ function updateTime(state, action) {
 }
 
 function Main() {
+    const navigate = useNavigate();
   const [availableTimes, dispatch] = useReducer(updateTime, []);
 
   // Initialize available times on mount
@@ -48,6 +50,30 @@ function Main() {
     }
   };
 
+
+  const submitForm = async (formData) => {
+    console.log("Main data:", formData);
+    
+    if (window.submitAPI) {
+      try {
+        const result = await window.submitAPI(formData); 
+        console.log("Main result:", result);
+  
+        if (result === true) {
+            navigate("/confirmBooking", { state: formData });
+        } else {
+          alert("Submission failed. Please try again.");
+        }
+      } catch (error) {
+        console.error("submitAPI error:", error);
+        alert("An error occurred while submitting. Please try again.");
+      }
+    } else {
+      console.error("submitAPI is not available on window");
+    }
+  };
+  
+
   return (
     <main>
       <div className="heading">
@@ -57,13 +83,17 @@ function Main() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/confirmBooking" element={<ConfirmBooking/>}/>
         <Route
           path="/booking"
           element={
             <BookingPage
               availableTimes={availableTimes}
               dispatchDateChange={updateTimesForDate}
+              submitForm={submitForm}
             />
+        
+            
           }
         />
       </Routes>

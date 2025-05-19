@@ -249,3 +249,24 @@ section#about{
   justify-content: space-between;
   margin: 0 auto;
 }
+
+.display{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #333333;
+}
+
+.display h1{
+  color: #f4ce14;
+  
+
+}
+
+.display h3{
+  color:#edefee;
+  text-align: left;
+}

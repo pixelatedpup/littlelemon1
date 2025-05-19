@@ -8,12 +8,12 @@ import { fetchAPI, submitAPI } from "./api";
 window.fetchAPI = fetchAPI;
 window.submitAPI = submitAPI;
 
-window.fetchAPI = function(date) {
-  console.log("Mock fetchAPI called with date:", date);
-  return Promise.resolve([
-    "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"
-  ]);
-};
+// window.fetchAPI = function(date) {
+//   console.log("Mock fetchAPI called with date:", date);
+//   return Promise.resolve([
+//     "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"
+//   ]);
+// };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
